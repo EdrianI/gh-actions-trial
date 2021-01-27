@@ -8,6 +8,6 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v1
     - run: npm install -g jsonlint dockerfilelint
-    - run: jsonlint **.json --quiet --compact
+    - run: jsonlint ./web/**.json --quiet --compact
     - run: dockerfilelint ./web/Dockerfile
 
