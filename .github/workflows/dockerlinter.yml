@@ -11,12 +11,12 @@ jobs:
       # Installing linters with npm
       - name: Set up linters
         uses: actions/setup-node@v1
-        run: npm install -g dockerfilelint jsonlint
+      - run: npm install -g dockerfilelint jsonlint
 
       # Executing each linter
       - name: Run jsonlint
-        run: jsonlint **.json --quiet --compact
+      - run: jsonlint **.json --quiet --compact
 
       - name: Run Dockerfilelinter
-        run: dockerfilelint ./web/Dockerfile
+      - run: dockerfilelint ./web/Dockerfile
 
