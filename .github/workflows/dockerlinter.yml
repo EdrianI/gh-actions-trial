@@ -8,14 +8,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      # Downloading and setting up specific linters
+      # Installing linters with npm
       - name: Set up linters
         uses: actions/setup-node@v1
         run: npm install -g dockerfilelint jsonlint
 
       # Executing each linter
-      - name: Running linters
+      - name: Run jsonlint
         run: jsonlint **.json --quiet --compact
+
+      - name: Run Dockerfilelinter
         run: dockerfilelint ./web/Dockerfile
+
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
