@@ -20,5 +20,3 @@ jobs:
       - name: Run Dockerfilelinter
         run: dockerfilelint ./web/Dockerfile
 
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
