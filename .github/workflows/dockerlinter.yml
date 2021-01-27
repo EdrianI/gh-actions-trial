@@ -10,12 +10,12 @@ jobs:
 
       # Downloading and setting up specific linters
       - name: Set up linters
-      - uses: actions/setup-node@v1
-      - run: npm install -g dockerfilelint jsonlint
+        uses: actions/setup-node@v1
+        run: npm install -g dockerfilelint jsonlint
 
       # Executing each linter
       - name: Running linters
-      - run: jsonlint **.json --quiet --compact
-      - run: dockerfilelint ./web/Dockerfile
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: jsonlint **.json --quiet --compact
+        run: dockerfilelint ./web/Dockerfile
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
