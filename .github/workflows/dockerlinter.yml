@@ -1,10 +1,21 @@
-name: dockerlinter
+name: linter
 on: [push]
 jobs:
-  check-bats-version:
+  linter:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      # Check out source
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # Downloading and setting up specific linters
+      - name: Set up linters
       - uses: actions/setup-node@v1
-      - run: npm install -g dockerfilelint
+      - run: npm install -g dockerfilelint jsonlint
+
+      # Executing each linter
+      - name: Running linters
+      - run: jsonlint **.json --quiet --compact
       - run: dockerfilelint ./web/Dockerfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
