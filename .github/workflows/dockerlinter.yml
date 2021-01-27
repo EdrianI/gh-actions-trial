@@ -4,19 +4,10 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
-      # Check out source
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      # Installing linters with npm
-      - name: Set up linters
-        uses: actions/setup-node@v1
-      - run: npm install -g dockerfilelint jsonlint
-
-      # Executing each linter
-      - name: Run jsonlint
-      - run: jsonlint **.json --quiet --compact
-
-      - name: Run Dockerfilelinter
-      - run: dockerfilelint ./web/Dockerfile
+    - uses: actions/checkout@v2
+    - name: Set up node
+      uses: actions/setup-node@v1
+    - run: npm install -g jsonlint dockerfilelint
+    - run: jsonlint **.json --quiet --compact
+    - run: dockerfilelint ./web/Dockerfile
 
