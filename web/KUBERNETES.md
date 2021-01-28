@@ -8,7 +8,7 @@ Register for an [IBM Cloud account](https://developer.ibm.com/dwwi/jsp/register.
 
 Note: You can also choose a more scalable Kubernetes or OpenShift cluster, but those are not free.
 
-- In the [IBM Cloud Catalog](https://cloud.ibm.com/catalog?category=containers), select **Kubernetes Service**. A cluster configuration page opens.
+* In the [IBM Cloud Catalog](https://cloud.ibm.com/catalog?category=containers), select **Kubernetes Service**. A cluster configuration page opens.
 - From the plan dropdown, select the **Free** cluster option.
 - Give your cluster a unique name, such as `openeew-free`.
 - Select a resource group to create the cluster in, such as `default`.
