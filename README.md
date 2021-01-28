@@ -1,6 +1,6 @@
 # OpenEEW Dashboard
 
-![Linter](https://github.com/edriani/gh-actions-trial/workflows/linter/badge.svg)
+![linter](https://github.com/edriani/gh-actions-trial/workflows/linter/badge.svg)
 
 The OpenEEW Dashboard is a web application currently being developed by the OpenEEW community for the purpose of managing network sensors and viewing sensor data.
 
