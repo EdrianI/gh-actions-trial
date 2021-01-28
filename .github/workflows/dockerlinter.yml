@@ -9,10 +9,9 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up node
-      uses: actions/setup-node@v1
-    - run: npm install -g dockerfilelint prettier
-    - run: dockerfilelint ./web/Dockerfile
-    - run: prettier --check .
-
+      - uses: actions/checkout@v2
+      - name: Set up node
+        uses: actions/setup-node@v1
+      - run: npm install -g dockerfilelint prettier
+      - run: dockerfilelint ./web/Dockerfile
+      - run: prettier --check .
