@@ -5,8 +5,7 @@ name: Build and Deploy to IKS
 on:
   # Execute on every push to the default branch. Merging a pull request counts as a push.
   push:
-    branches:
-      - [$default-branch]
+    branches: [ $default-branch ]
 
 # Environment variables available to all jobs and steps in this workflow
 env:
