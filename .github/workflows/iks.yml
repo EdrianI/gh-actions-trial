@@ -12,7 +12,8 @@ on: [push]
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-  GITHUB_SHA: ${{ github.sha }}
+  #GITHUB_SHA: ${{ github.sha }}
+  GITHUB_SHA: v2 # So I don't eat up all my cr space
   IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
   IBM_CLOUD_REGION: us-south
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
