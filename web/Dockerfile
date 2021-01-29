@@ -7,7 +7,7 @@ COPY . .
 RUN npm run setup
 
 # Build the client
-RUN npm run client:build
+# RUN npm run client:build
 
 ENV USE_STATIC true
 

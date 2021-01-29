@@ -22,6 +22,7 @@ env:
   IKS_CLUSTER: bvucbrsw0jq4m9h0kdag # name or id of cluster
   DEPLOYMENT_NAME: openeew-dashboard
   CLUSTER_NAMESPACE: openeew-dev
+  REACT_APP_MAPBOX_ACCESS_TOKEN: ${{ secrets.REACT_APP_MAPBOX_ACCESS_TOKEN }}
 
 jobs:
   setup-build-publish-deploy:
