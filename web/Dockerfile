@@ -10,6 +10,7 @@ RUN npm run setup
 # RUN npm run client:build
 
 ENV USE_STATIC true
+ENV REACT_APP_MAPBOX_ACCESS_TOKEN ${REACT_APP_MAPBOX_ACCESS_TOKEN}
 
 # Expose the client
 EXPOSE 3000
