@@ -61,5 +61,5 @@ jobs:
         run: |
           ibmcloud ks cluster config --cluster $IKS_CLUSTER
           kubectl config current-context
-          kubectl set image --namespace=$CLUSTER_NAMESPACE deployments/"$DEPLOYMENT_NAME" \
-          DEPLOYMENT_NAME=$REGISTRY_HOSTNAME/$ICR_NAMESPACE/$IMAGE_NAME:$GITHUB_SHA
+          kubectl set image --namespace=$CLUSTER_NAMESPACE deployments/$DEPLOYMENT_NAME \
+          $DEPLOYMENT_NAME=$REGISTRY_HOSTNAME/$ICR_NAMESPACE/$IMAGE_NAME:$GITHUB_SHA
