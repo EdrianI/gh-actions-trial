@@ -50,7 +50,7 @@ jobs:
       - name: Build with Docker
         run: |
           echo $VCAP_LOCAL >> ./web/api/vcap-local.json
-          echo $REACT_APP_MAPBOX_ACCESS_TOKEN >> ./web/client/.env.local
+          echo REACT_APP_MAPBOX_ACCESS_TOKEN=$REACT_APP_MAPBOX_ACCESS_TOKEN >> ./web/client/.env.local
           docker build --tag "$REGISTRY_HOSTNAME"/"$ICR_NAMESPACE"/"$IMAGE_NAME":"$GITHUB_SHA" ./web/
 
       # Push the image to IBM Container Registry
