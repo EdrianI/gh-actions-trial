@@ -10,8 +10,7 @@ on:
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-  #GITHUB_SHA: ${{ github.sha }}
-  GITHUB_SHA: v2 # So I don't eat up all my cr space
+  GITHUB_SHA: ${{ github.sha }}
   IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
   IBM_CLOUD_REGION: us-south
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
@@ -20,9 +19,8 @@ env:
   IKS_CLUSTER: bvucbrsw0jq4m9h0kdag # name or id of cluster
   DEPLOYMENT_NAME: openeew-dashboard
   CLUSTER_NAMESPACE: openeew-dev
-  BLD_ARG_REACT_APP_MAPBOX_ACCESS_TOKEN: ${{ secrets.REACT_APP_MAPBOX_ACCESS_TOKEN }}
+  REACT_APP_MAPBOX_ACCESS_TOKEN: ${{ secrets.REACT_APP_MAPBOX_ACCESS_TOKEN }}
   VCAP_LOCAL: ${{ secrets.VCAP_LOCAL }}
-  DEFAULT_BRANCH: $default-branch
 
 jobs:
   setup-build-publish-deploy:
@@ -52,8 +50,8 @@ jobs:
       - name: Build with Docker
         run: |
           echo $VCAP_LOCAL >> ./web/api/vcap-local.json
-          docker build --build-arg BLD_ARG_REACT_APP_MAPBOX_ACCESS_TOKEN \
-          --tag "$REGISTRY_HOSTNAME"/"$ICR_NAMESPACE"/"$IMAGE_NAME":"$GITHUB_SHA" ./web/
+          echo $REACT_APP_MAPBOX_ACCESS_TOKEN >> ./web/client/.env.local
+          docker build --tag "$REGISTRY_HOSTNAME"/"$ICR_NAMESPACE"/"$IMAGE_NAME":"$GITHUB_SHA" ./web/
 
       # Push the image to IBM Container Registry
       - name: Push the image to ICR
